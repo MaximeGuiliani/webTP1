@@ -1,0 +1,15 @@
+<li>
+  <h4 [ngStyle]="{ color: getColor() }">
+    étudiant : {{ studentName }} -- Statut : {{ getStatus() }}
+  </h4>
+  <p>{{ index }}</p>
+  <input type="text" class="form-control" [(ngModel)]="studentName" />
+  <button class="btn btn-sm btn-success" *ngIf="studentStatus === 'absent'" (click)="onSwitch()">
+    Présent
+  </button>
+  <button class="btn btn-sm btn-danger" *ngIf="studentStatus === 'present'" (click)="onSwitch()">
+    Absent
+  </button>
+  <a [routerLink]="[id]">Détail</a>
+
+</li>

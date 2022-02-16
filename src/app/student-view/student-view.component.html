@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<div class="container ">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Les étudiants</h2>
+      <p style="text-shadow:1px 1px 0 #444">Mise à jour le : {{ lastUpdate| date: 'y MMMM d     hh:mm:ss'
+      }}</p>
+      <ul style="list-style: none;" class="list-group w3-ul">
+        <app-students *ngFor="let student of students; let i = index" [studentName]="student.name"
+          [studentStatus]="student.status" [id]="student.id">
+
+        </app-students>
+
+
+      </ul>
+      <br>
+      <button class="btn btn-success w3-button w3-border w3-border-green w3-round-medium w3-hover-green"
+        [disabled]="!isAuth" (click)="allPresent()">
+        Tous Présents
+      </button>
+      <button class="btn btn-danger w3-button w3-border w3-border-red w3-round-medium w3-hover-red" [disabled]="!isAuth"
+        (click)="allAbsent()">
+        Tous Absent
+      </button>
+    </div>
+  </div>
+</div>

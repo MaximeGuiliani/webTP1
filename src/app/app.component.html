@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-collapse">
+      <tr class="nav navbar-nav w3-table w3-bar w3-light-grey ">
+        <th><a class="w3-button w3-border w3-border-white w3-round-medium w3-hover-gray"
+            routerLink="auth">Authentification</a></th>
+        <th routerLinkActive="active"><a class="w3-button w3-border w3-border-white w3-round-medium w3-hover-gray"
+            routerLink="students">Etudiants</a></th>
+        <th routerLinkActive="active"><a class="w3-button w3-border w3-border-white w3-round-medium w3-hover-gray"
+            routerLink="edit">Nouvel étudiant</a></th>
+        <th routerLinkActive="active"><a class="w3-button w3-border w3-border-white w3-round-medium w3-hover-gray"
+            routerLink="users">Utilisateurs</a></th>
+
+      </tr>
+    </div>
+  </div>
+  <div class=" w3-center">
+    <p class="w3-animate-opacity">Vous êtes connecté depuis {{ secondes }} secondes !</p>
+
+    <router-outlet></router-outlet>
+  </div>
+
+
+</nav>

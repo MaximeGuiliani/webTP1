@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<div class="w3-display-middle">
+  <h2>{{ name }}</h2>
+  <p class="w3-green" *ngIf="status === 'present'">Statut : {{ status }}</p>
+  <p class="w3-red" *ngIf="status === 'absent'">Statut : {{ status }}</p>
+
+  <a class="w3-button w3-border w3-border-black w3-round-medium w3-hover-gray" routerLink="/students">Retour à la
+    liste</a>
+</div>
