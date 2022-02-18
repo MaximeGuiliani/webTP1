@@ -22,4 +22,10 @@ export class HttpService {
       this.httpOptions
     );
   }
+
+  public suppUser(firstName): Observable<any> {
+    return this.http.delete<any>(this.serverUrl + 'users/' + firstName, {
+      observe: 'response',
+    });
+  }
 }

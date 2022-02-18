@@ -24,4 +24,21 @@ export class UserListComponent implements OnInit, OnDestroy {
         this.users = users;
       });
   }
+
+  onSuppress(firstName) {
+    if (confirm('Etes-vous sûr de la supprimer ?')) {
+      this.suppressUser(firstName);
+    } else {
+      return null;
+    }
+  }
+  suppressUser(firstName) {
+    this.httpService.suppUser(firstName).subscribe((result) => {
+      if (result.status === 200) {
+        this.ngOnInit();
+      } else {
+        alert("le User n'existe pas !");
+      }
+    });
+  }
 }
