@@ -10,10 +10,10 @@ import { StudentService } from './services/student.services';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './auth-guard.service';
 import { EditStudentComponent } from './edit-student/edit-student.component';
-import { UserService } from './services/user-services';
 import { UserListComponent } from './models/UserListComponent';
 import { NewUserComponent } from './newUserComponent/newUserComponent';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpService } from './services/http.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
     AuthGuard,
     SingleStudentComponent,
     FormsModule,
-    UserService,
+    HttpService,
   ],
   bootstrap: [AppComponent],
 })

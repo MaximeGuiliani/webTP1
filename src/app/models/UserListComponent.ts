@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HttpService } from '../services/http.service';
-import { UserService } from '../services/user-services';
 import { User } from './user.model';
 
 @Component({
@@ -9,10 +8,7 @@ import { User } from './user.model';
   templateUrl: '../models/UserListComponent.html',
 })
 export class UserListComponent implements OnInit, OnDestroy {
-  constructor(
-    private userService: UserService,
-    private httpService: HttpService
-  ) {}
+  constructor(private httpService: HttpService) {}
 
   users: User[];
   userSubscription: Subscription;
@@ -27,8 +23,5 @@ export class UserListComponent implements OnInit, OnDestroy {
       .subscribe((users: User[]) => {
         this.users = users;
       });
-    //ligne du dessous a enlever peut etre
-
-    this.userService.emitUsers();
   }
 }

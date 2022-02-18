@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../models/user.model';
-import { UserService } from '../services/user-services';
 import { Validators, FormArray } from '@angular/forms';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-newUserComponent',
@@ -12,8 +12,8 @@ import { Validators, FormArray } from '@angular/forms';
 export class NewUserComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService,
-    private router: Router
+    private router: Router,
+    private httpService: HttpService
   ) {}
 
   userForm: FormGroup;
@@ -45,7 +45,21 @@ export class NewUserComponent implements OnInit {
       formValue['diploma'],
       formValue['options'] ? formValue['options'] : []
     );
-    this.userService.addUser(newUser);
+    this.httpService.createUser(newUser).subscribe(
+      (response) => {
+        if (response && response.firstName === 'ok') {
+          alert('User crée');
+        } else {
+          alert('User Existe !');
+        }
+      },
+      (e) => {
+        console.log('erreur', e);
+      },
+      () => {
+        this.router.navigate(['/users']);
+      }
+    );
     this.router.navigate(['/users']);
   }
 
